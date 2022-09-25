@@ -11,5 +11,8 @@ namespace FeatureFlagTutorial
         //New Feature
         public int? TemperatureF { get; set; }
 
+        //New Feature for advanced Advanced feature flag
+        public string? SnowPercentage { get; set; } 
+
     }
 }

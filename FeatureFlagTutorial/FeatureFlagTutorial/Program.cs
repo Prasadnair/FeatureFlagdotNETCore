@@ -1,9 +1,16 @@
+using FeatureFlagTutorial.Filters;
 using Microsoft.FeatureManagement;
+using Microsoft.FeatureManagement.FeatureFilters;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpContextAccessor();
 // Add services to the container.
-builder.Services.AddFeatureManagement();
+builder.Services.AddFeatureManagement()
+    .AddFeatureFilter<PercentageFilter>()
+    .AddFeatureFilter<BrowserFilter>();
+
+
 //Ignore Null Values
 builder.Services.AddControllers().AddJsonOptions
     (option=>
